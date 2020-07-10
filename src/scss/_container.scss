@@ -1,0 +1,17 @@
+.container {
+  background-image: url(../assets/home-8-pattern.jpg);
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  //   position: relative;
+}
+
+.content {
+  width: 90%;
+  max-width: 139rem;
+  margin: 0 auto;
+  position: relative;
+}

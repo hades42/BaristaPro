@@ -1,0 +1,217 @@
+.slidershow {
+  width: 100%;
+  position: relative;
+  &__navigation {
+    color: rgba(255, 255, 255, 0.712);
+    font-size: 3.5rem;
+
+    i {
+      position: absolute;
+      z-index: 1000;
+      cursor: pointer;
+      transition: all 0.6s ease;
+      top: 50%;
+      color: white;
+      margin: 0 5rem;
+      //   transition: 0.6s ease;
+    }
+  }
+
+  &__prev {
+    i {
+      &:hover {
+        transform: translateX(-1rem);
+      }
+    }
+  }
+
+  &__next {
+    i {
+      right: 0;
+      &:hover {
+        transform: translateX(1rem);
+      }
+    }
+  }
+
+  &__dots {
+    display: flex;
+    position: absolute;
+    top: 86%;
+    right: 50%;
+    transform: translateX(50%);
+    &-dot {
+      cursor: pointer;
+      height: 1.2rem;
+      width: 1.2rem;
+      border-radius: 50%;
+      background-color: #fff;
+      margin-right: 2rem;
+      transition: all 0.2s linear;
+      &.active {
+        transform: scale(1.3);
+      }
+    }
+  }
+}
+
+.slide {
+  position: relative;
+  //   opacity: 0;
+  //   transition: all 5s ease-out;
+  &.active {
+    // opacity: 1;
+    .slide__content-title {
+      animation-name: moveUp;
+      animation-duration: 1s;
+      animation-timing-function: ease-out;
+    }
+    .slide__content-des {
+      animation: moveUpDes;
+      animation-duration: 1.2s;
+    }
+    .slide__content-btn {
+      animation: moveUpBtn;
+      animation-duration: 1.4s;
+    }
+  }
+  &__image {
+    width: 100%;
+    // visibility: hidden;
+    // opacity: 1;
+    transition: visibility 0.2s linear;
+    // &.actived {
+    //   visibility: visible;
+    // }
+  }
+  &__content {
+    width: 100%;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    color: white;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &-title {
+      color: rgba(255, 255, 255, 1);
+      font-size: 7rem;
+      line-height: 10rem;
+      font-weight: 700;
+      letter-spacing: 0.2rem;
+      text-align: center;
+      font-weight: 700;
+      text-transform: uppercase;
+      transform-origin: 50% 50% 0;
+    }
+    &-des {
+      font-size: 2.2rem;
+      line-height: 3rem;
+      font-weight: 400;
+      font-style: italic;
+      text-align: center;
+      transform-origin: 50% 50% 0;
+    }
+
+    &-btn {
+      color: white;
+      border: 0.2rem solid #efefef;
+      font-size: 2rem;
+      padding: 1.4rem 3.5rem;
+      background: transparent;
+      margin-top: 3.5rem;
+      cursor: pointer;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+@keyframes moveUp {
+  0% {
+    opacity: 0;
+    transform: translateY(8rem);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translateY(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes moveUpDes {
+  0% {
+    opacity: 0;
+    transform: translateY(8rem);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(-1rem);
+    transform: translateY(4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveUpBtn {
+  0% {
+    opacity: 0;
+    transform: translateY(8rem);
+  }
+  60% {
+    opacity: 0;
+    transform: translateY(-1rem);
+    transform: translateY(4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1s;
+  animation-name: fade;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// .fadeOut {
+//   opacity: 0;
+// }
+
+// @keyframes fadeOut {
+//   from {
+//     opacity: 1;
+//   }
+//   to {
+//     opacity: 0;
+//   }
+// }

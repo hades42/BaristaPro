@@ -1,0 +1,149 @@
+$heightOfNav: 6rem;
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  &__logo {
+    width: 11rem;
+  }
+  &__content {
+    display: flex;
+    &-list {
+      display: flex;
+      color: white;
+      list-style: none;
+      align-items: center;
+    }
+    &-link {
+      cursor: pointer;
+      &:hover > ul {
+        line-height: 3.5rem;
+        opacity: 1;
+        visibility: visible;
+        transition: all 0.2s ease-in;
+        z-index: 100;
+        transform: translate(18rem, 2rem);
+      }
+      a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        i {
+          margin-right: 2rem;
+        }
+      }
+    }
+
+    &-el {
+      text-transform: uppercase;
+      font-size: 1.6rem;
+      font-weight: 900;
+      margin-right: 3.5rem;
+      display: inline-block;
+      cursor: pointer;
+      line-height: $heightOfNav;
+
+      a {
+        color: white;
+        transition: 0.5s;
+        i {
+          font-size: 1.5rem;
+          margin-left: 0.5rem;
+        }
+      }
+
+      &:hover > ul {
+        line-height: 3.5rem;
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        transition: all 0.2s linear;
+        z-index: 100;
+      }
+      &:last-child {
+        position: relative;
+        margin-right: 7rem;
+      }
+      &:last-child::after {
+        content: "";
+        width: 0.2rem;
+        height: 3rem;
+        background-color: rgba($color: white, $alpha: 0.7);
+        position: absolute;
+        top: 1.5rem;
+        right: -3.5rem;
+      }
+    }
+
+    &-dropdown {
+      line-height: 0rem;
+      font-size: 1.4rem;
+      position: absolute;
+      transform: translateY(-1.5rem);
+      line-height: auto;
+      opacity: 0;
+      visibility: hidden;
+      border-top: 0.4rem solid $base-color;
+      top: $heightOfNav;
+      z-index: 100;
+      background-color: whitesmoke;
+      padding: 2rem 0rem 2rem 2rem;
+      width: 20rem;
+      a {
+        font-weight: 400;
+        color: #666;
+        &:hover {
+          color: $base-color;
+        }
+      }
+      &--2 {
+        transform: translate(10rem, 2rem);
+      }
+    }
+
+    &-func {
+      display: flex;
+      color: white;
+    }
+    &-icon {
+      font-size: 2rem;
+      line-height: $heightOfNav;
+      &:not(:last-child) {
+        margin-right: 3rem;
+      }
+    }
+    &-cart {
+      position: relative;
+
+      &--quantity {
+        position: absolute;
+        background-color: $base-color;
+        font-size: 1.2rem;
+        top: 1.5rem;
+        right: -1rem;
+        height: 1.8rem;
+        width: 1.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+// .intro {
+//   height: 100rem;
+//   width: 100%;
+//   background-color: black;
+// }
+
+@keyframes dropdown {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
