@@ -1,0 +1,118 @@
+.category {
+  background-color: #fff;
+  overflow: hidden;
+
+  &__intro {
+    padding-top: 8rem;
+    text-align: center;
+    &-1 {
+      color: $base-color;
+      font-size: 1.8rem;
+      font-weight: 400;
+      letter-spacing: 0.2rem;
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+    &-2 {
+      font-size: 3.7rem;
+      text-transform: uppercase;
+      font-weight: 900;
+      color: #30271c;
+      margin-bottom: 8rem;
+      &::after {
+        content: "";
+        display: block;
+        width: 13rem;
+        height: 0.2rem;
+        background-color: $base-color;
+        margin: 0 auto;
+        margin-top: 2.5rem;
+      }
+    }
+  }
+
+  &__cup {
+    opacity: 0;
+    transform: translateY(20rem);
+    transition: all 2s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  &__content {
+    display: flex;
+    padding: 0 10.5rem 7rem 10.5rem;
+    // margin-bottom: 3rem;
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+    &:not(:last-of-type) {
+      margin-bottom: 5rem;
+    }
+
+    &-image {
+      width: 7.82rem;
+      height: 8.5rem;
+      //   visibility: hidden;
+      //   transform: translateY(20rem);
+      &--left {
+        margin-left: 3rem;
+      }
+      &--right {
+        margin-right: 3rem;
+      }
+    }
+    opacity: 0;
+    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+    &--left {
+      //   transition-delay: 2s;
+      transform: translateX(-15rem);
+    }
+
+    &--right {
+      transform: translateX(15rem);
+    }
+    &-des {
+      display: flex;
+      flex-direction: column;
+      h1 {
+        color: $black;
+        text-transform: uppercase;
+        margin-bottom: 1.3rem;
+      }
+      p {
+        color: $grey;
+        font-size: 1.5rem;
+        line-height: 2.7rem;
+      }
+      &--left {
+        align-items: flex-end;
+        p {
+          text-align: right;
+        }
+      }
+      &--right {
+        align-items: flex-start;
+      }
+    }
+  }
+}
+.appeared {
+  transform: translateX(0);
+  opacity: 1;
+}
+.moveUp {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@keyframes goLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

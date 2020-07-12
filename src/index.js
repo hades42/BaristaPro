@@ -6,6 +6,7 @@ window.onscroll = function () {
   scrollFunction(navBarLight);
 };
 
+// Slider intro
 let slideIndex = 1;
 showSlide(1);
 
@@ -40,3 +41,34 @@ function showSlide(n) {
   slides[slideIndex - 1].style.display = "block";
   slides[slideIndex - 1].classList.add("active");
 }
+
+const options = {
+  root: null,
+  threshold: 0.7,
+  rootMargin: "0px 0px -50px 0px",
+};
+
+const boxs = [...document.getElementsByClassName("category__box")];
+const cup = document.getElementsByClassName("category__cup");
+
+const observer = new IntersectionObserver((entries) => {
+  console.log(entries);
+  entries.forEach((entry) => {
+    if (entry.intersectionRatio > 0.7) {
+      entry.target.classList.add("appeared");
+    }
+  });
+}, options);
+
+const cupObserver = new IntersectionObserver((entries) => {
+  if (entries[0].intersectionRatio > 0) {
+    entries[0].target.classList.add("moveUp");
+    cupObserver.unobserve(entries[0].target);
+  }
+});
+
+cupObserver.observe(cup[0]);
+
+boxs.forEach((box) => {
+  observer.observe(box);
+});
