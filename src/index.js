@@ -47,12 +47,17 @@ const options = {
   threshold: 0.7,
   rootMargin: "0px 0px -50px 0px",
 };
+const cupOptions = {
+  root: null,
+  threshold: 0,
+  rootMargin: "0px 0px -50px 0px",
+};
 
 const boxs = [...document.getElementsByClassName("category__box")];
 const cup = document.getElementsByClassName("category__cup");
 
 const observer = new IntersectionObserver((entries) => {
-  console.log(entries);
+  // console.log(entries);
   entries.forEach((entry) => {
     if (entry.intersectionRatio > 0.7) {
       entry.target.classList.add("appeared");
@@ -65,7 +70,7 @@ const cupObserver = new IntersectionObserver((entries) => {
     entries[0].target.classList.add("moveUp");
     cupObserver.unobserve(entries[0].target);
   }
-});
+}, cupOptions);
 
 cupObserver.observe(cup[0]);
 

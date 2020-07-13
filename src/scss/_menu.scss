@@ -1,0 +1,97 @@
+.menu {
+  background-color: #fff;
+  padding: 9rem 11rem;
+  &__intro {
+    text-align: center;
+
+    &-1 {
+      color: $base-color;
+      font-size: 1.8rem;
+      font-weight: 400;
+      letter-spacing: 0.2rem;
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+    &-2 {
+      font-size: 3.7rem;
+      text-transform: uppercase;
+      font-weight: 900;
+      color: #30271c;
+      margin-bottom: 5rem;
+      &::after {
+        content: "";
+        display: block;
+        width: 13rem;
+        height: 0.2rem;
+        background-color: $base-color;
+        margin: 0 auto;
+        margin-top: 2.5rem;
+      }
+    }
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // flex-grow: 1;
+    &--left {
+      flex-grow: 1;
+      margin-right: 3.5rem;
+    }
+    &--right {
+      flex-grow: 1;
+      margin-left: 3.5rem;
+    }
+  }
+
+  &__item {
+    margin-bottom: 3rem;
+    &-dot {
+      margin-top: 1.3rem;
+      height: 0.3rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      flex: 1 1 auto;
+    }
+
+    &--top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    &--bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &--des {
+      color: $base-color;
+      font-size: 1.6rem;
+    }
+    &--status {
+      font-size: 1.7rem;
+      background-color: $base-color;
+      color: $black;
+      font-weight: 400;
+      font-style: italic;
+      //   margin-right: 1rem;
+      padding: 0.3rem 1.3rem;
+    }
+
+    &-title {
+      //   display: inline-block;
+      font-size: 2.2rem;
+      letter-spacing: 0.05rem;
+      text-transform: uppercase;
+      color: $black;
+      margin-right: 0.5rem;
+    }
+  }
+  &__price {
+    font-size: 2.2rem;
+    color: $black;
+    font-weight: 700;
+    margin-left: 0.5rem;
+  }
+}
