@@ -1,0 +1,80 @@
+.guide {
+  background-color: #fff;
+  padding: 3rem 6rem;
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 33.33%);
+    grid-template-rows: repeat(2, 30rem);
+
+    &--title {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      margin-bottom: 2.3rem;
+    }
+
+    &--des {
+      font-size: 1.4rem;
+      letter-spacing: 0.1rem;
+      font-weight: 300;
+      margin-bottom: 2.3rem;
+    }
+
+    &-btn {
+      display: flex;
+      align-items: center;
+      h2 {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 0.2rem;
+      }
+
+      &:hover {
+        .guide__grid-btn__arrow {
+          transform: translateX(0.5rem);
+        }
+      }
+
+      &__arrow {
+        font-size: 1.5rem;
+        margin-left: 1rem;
+        transition: all 0.1s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+      }
+    }
+    &-1 {
+      background: url(../assets/home-8-image-1.jpg) no-repeat center center;
+      background-size: cover;
+      color: #fff;
+      a {
+        color: #fff;
+      }
+    }
+    &-2 {
+      background-color: #eae7de;
+      color: $black;
+      a {
+        color: $black;
+      }
+    }
+    &-3 {
+      background: url(../assets/home-8-image-2.jpg) no-repeat center center;
+      background-size: cover;
+    }
+    &-4 {
+      background: url(../assets/home-8-image-3.jpg) no-repeat center center;
+      background-size: cover;
+    }
+    &-5 {
+      background: url(../assets/home-8-image-4.jpg) no-repeat center center;
+      background-size: cover;
+    }
+    &-6 {
+      background: url(../assets/home-8-image-5.jpg) no-repeat center center;
+      background-size: cover;
+      color: #fff;
+      a {
+        color: #fff;
+      }
+    }
+  }
+}
