@@ -57,7 +57,6 @@ const boxs = [...document.getElementsByClassName("category__box")];
 const cup = document.getElementsByClassName("category__cup");
 
 const observer = new IntersectionObserver((entries) => {
-  // console.log(entries);
   entries.forEach((entry) => {
     if (entry.intersectionRatio > 0.7) {
       entry.target.classList.add("appeared");
@@ -77,3 +76,48 @@ cupObserver.observe(cup[0]);
 boxs.forEach((box) => {
   observer.observe(box);
 });
+
+// Slider for testimonial
+let tesCurrSlide = 0;
+const sliders = [...document.getElementsByClassName("testimonial__slider")];
+const dots = [...document.getElementsByClassName("testimonial__dots-dot")];
+
+showSlider(tesCurrSlide);
+let myTimer = setInterval(() => {
+  plusSlider(tesCurrSlide);
+}, 3000);
+
+function showSlider(index) {
+  for (let i = 0; i < sliders.length; i++) {
+    if (tesCurrSlide > sliders.length - 1) {
+      tesCurrSlide = 0;
+    }
+    if (i !== index) {
+      sliders[i].className = "testimonial__slider ";
+      dots[i].className = "testimonial__dots-dot";
+    }
+  }
+  sliders[index].className = "testimonial__slider active";
+  dots[index].className = "testimonial__dots-dot active";
+}
+
+function plusSlider(n) {
+  clearInterval(myTimer);
+  sliders[tesCurrSlide].className = "testimonial__slider left";
+  dots[tesCurrSlide].className = "testimonial__dots-dot";
+  showSlider(tesCurrSlide++);
+
+  myTimer = setInterval(() => {
+    plusSlider(n + 1);
+  }, 3000);
+}
+
+function tesClick(n) {
+  clearInterval(myTimer);
+  myTimer = setInterval(() => {
+    plusSlider(n + 1);
+  }, 3000);
+  showSlider((tesCurrSlide = n));
+}
+
+window.tesClick = tesClick;
