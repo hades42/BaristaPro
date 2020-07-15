@@ -121,3 +121,45 @@ function tesClick(n) {
 }
 
 window.tesClick = tesClick;
+
+// Brand Slider
+const brandContainer = document.querySelector(".brand__slider");
+const allBox = brandContainer.children;
+const containerWidth = brandContainer.offsetWidth;
+const margin = 30;
+let items = 0;
+let jumpSlideWidth = 0;
+
+const responsive = [
+  { breakPoint: { width: 0, item: 1 } },
+  { breakPoint: { width: 600, item: 3 } },
+  { breakPoint: { width: 1000, item: 5 } },
+];
+
+function load() {
+  for (let i = 0; i < responsive.length; i++) {
+    if (window.innerWidth > responsive[i].breakPoint.width) {
+      items = responsive[i].breakPoint.item;
+    }
+  }
+  start();
+}
+
+function start() {
+  let totalItemWidth = 0;
+  for (let i = 0; i < allBox.length; i++) {
+    allBox[i].style.width = containerWidth / items - margin + "px";
+    allBox[i].style.margin = margin / 2 + "px";
+    totalItemWidth += containerWidth / items;
+  }
+  brandContainer.style.width = totalItemWidth + "px";
+}
+
+function moveItem() {
+  jumpSlideWidth = jumpSlideWidth + containerWidth / items;
+}
+
+setInterval(moveItem, 4000);
+
+window.onload = load();
+console.log(items);

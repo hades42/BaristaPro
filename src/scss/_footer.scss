@@ -1,0 +1,148 @@
+// .footer__gird-1 {
+//   background-color: red;
+// }
+
+.footer {
+  background: url(../assets/Client/footer-img.jpg) no-repeat center center;
+  background-size: cover;
+  padding: 6rem 4rem;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    // gap: 9rem;
+    &-1 {
+      margin-right: 9rem;
+    }
+    &-2 {
+      margin-right: 2.5rem;
+    }
+    &-3 {
+      margin-right: 5rem;
+    }
+    &-time {
+      font-size: 1.4rem;
+      margin-left: 1rem;
+      color: #acacac;
+      &--closed {
+        color: $base-color;
+      }
+    }
+
+    &-title {
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 1.9rem;
+      margin-bottom: 3rem;
+    }
+    &-day {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #fff;
+      margin-bottom: 1rem;
+      h2 {
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin-right: 1rem;
+      }
+    }
+    &-dot {
+      margin-top: 1rem;
+      height: 0.3rem;
+      border-bottom: 1px solid rgba($color: $black, $alpha: 1);
+      flex: 1 1 auto;
+    }
+  }
+
+  &__post {
+    color: #fff;
+    // font-weight: 400;
+    border-bottom: 1px solid rgba($color: $black, $alpha: 1);
+    padding-bottom: 1.3rem;
+    margin-bottom: 1.3rem;
+    &-news {
+      text-transform: uppercase;
+      font-weight: 300;
+      transition: color 0.15s ease-out;
+      font-size: 1.3rem;
+      cursor: pointer;
+      margin-bottom: 0.5rem;
+      &:hover {
+        color: $base-color;
+      }
+    }
+    &-time {
+      font-size: 1.3rem;
+      color: $base-color;
+      font-style: oblique;
+    }
+  }
+
+  &__contact {
+    color: #acacac;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    &-address {
+      line-height: 2rem;
+    }
+    &-email {
+      color: $base-color;
+    }
+    p:not(:last-of-type) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__form {
+    &-title {
+      color: #fff;
+      font-size: 1.9rem;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+    }
+    &-filling {
+      display: flex;
+    }
+    &-box {
+      padding: 1.1rem;
+      background: transparent;
+      border: 1px solid #acacac;
+      flex: 1 1 auto;
+    }
+    &-btn {
+      padding: 0.8rem 1.5rem;
+      font-size: 2rem;
+      margin-left: 1rem;
+      color: $black;
+      border: none;
+      background: $base-color;
+      transition: background 0.5s ease-out;
+      cursor: pointer;
+      &:focus {
+        outline: none;
+      }
+      &:hover {
+        color: white;
+        background: #f7c89a;
+      }
+    }
+  }
+  &__location {
+    color: white;
+    li {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid $black;
+      padding-bottom: 2rem;
+    }
+    &-title {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+    }
+    p {
+      font-size: 1.4rem;
+      color: #acacac;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.right {
+  background: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 2.5rem;
+  &__title {
+    font-weight: 300;
+    color: #acacac;
+  }
+  &__media {
+    display: flex;
+    li {
+      font-size: 2rem;
+      a {
+        color: white;
+        transition: color 0.5s ease-out;
+        &:hover {
+          color: $base-color;
+        }
+      }
+      margin-right: 3rem;
+    }
+  }
+  &__des {
+    font-size: 1.5rem;
+  }
+}
