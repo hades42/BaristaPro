@@ -17,43 +17,110 @@
   </head>
   <body>
     <div class="container">
-      <div class="content">
-        <div class="navbar">
+      <nav class="edge">
+        <div class="edge__container">
+          <div class="edge__close"><i class="fas fa-times"></i></div>
           <img
-            class="navbar__logo"
-            src="../assets/Client/logo-2.png"
+            class="edge__logo"
+            src="../assets/Client/sidearea-logo.png"
             alt="Logo"
           />
+          <p class="edge__des">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea animi
+            quas deserunt cupiditate enim quis fugiat minus explicabo eveniet
+            delectus.
+          </p>
+          <ul class="edge__list">
+            <li>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </li>
+            <li>
+              <a href="#"> <i class="fab fa-twitter"></i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
-          <div class="navbar__content">
+      <div class="to-top">
+        <i class="fas fa-caret-up"></i>
+      </div>
+      <div class="content">
+        <div class="navbar navbar__accordion">
+          <div class="navbar__headerwrap">
+            <img
+              class="navbar__logo"
+              src="../assets/Client/logo-2.png"
+              alt="Logo"
+            />
+            <div class="navbar__headerwrap-icon">
+              <i class="fas fa-coffee"></i>
+            </div>
+          </div>
+
+          <div class="navbar__content navbar__contentwrap">
             <ul class="navbar__content-list">
               <li class="navbar__content-el">
                 <a href="#">home</a>
               </li>
               <li class="navbar__content-el">
-                <a href="#">menu <i class="fas fa-chevron-down"></i></a>
-                <ul class="navbar__content-dropdown">
+                <div class="navbar__headerwrap navbar__headerwrap--small">
+                  <a href="#">menu</a>
+                  <div class="navbar__listwrap-pointdown">
+                    <i class="fas fa-chevron-down"></i>
+                  </div>
+                </div>
+                <ul
+                  class="navbar__contentwrap navbar__content-dropdown navbar__contentwrap--small"
+                >
                   <li><a href="#">Morning Menu</a></li>
                   <li><a href="#">Night Menu</a></li>
                 </ul>
               </li>
               <li class="navbar__content-el">
-                <a href="#">pages <i class="fas fa-chevron-down"></i></a>
-                <ul class="navbar__content-dropdown">
+                <div class="navbar__headerwrap navbar__headerwrap--small">
+                  <a href="#">pages</a>
+                  <div class="navbar__listwrap-pointdown">
+                    <i class="fas fa-chevron-down"></i>
+                  </div>
+                </div>
+
+                <ul
+                  class="navbar__contentwrap navbar__contentwrap--small navbar__content-dropdown"
+                >
                   <li><a href="#">About Me</a></li>
                   <li><a href="#">Meet out team</a></li>
                   <li><a href="#">what we offer</a></li>
                 </ul>
               </li>
               <li class="navbar__content-el">
-                <a href="#">blog <i class="fas fa-chevron-down"></i></a>
-                <ul class="navbar__content-dropdown">
+                <div class="navbar__headerwrap navbar__headerwrap--small">
+                  <a href="#">blogs</a>
+                  <div class="navbar__listwrap-pointdown">
+                    <i class="fas fa-chevron-down"></i>
+                  </div>
+                </div>
+
+                <ul
+                  class="navbar__contentwrap navbar__contentwrap--small navbar__content-dropdown"
+                >
                   <li><a href="#">Coffee journey</a></li>
                   <li><a href="#">How to make barista</a></li>
                   <li class="navbar__content-link">
-                    <a href="#">mentor <i class="fas fa-arrow-right"></i></a>
+                    <div class="navbar__headerwrap navbar__headerwrap--small">
+                      <a href="#">mentor</a>
+                      <div class="navbar__listwrap-pointdown">
+                        <i class="fas fa-arrow-right"></i>
+                      </div>
+                    </div>
+
                     <ul
-                      class="navbar__content-dropdown navbar__content-dropdown--2"
+                      class="navbar__contentwrap navbar__contentwrap--small navbar__content-dropdown navbar__content-dropdown--2"
                     >
                       <li><a href="#">Manage coffee shop</a></li>
                       <li><a href="#">coffe ecommerce</a></li>
@@ -67,8 +134,15 @@
                 <a href="#">shop</a>
               </li>
               <li class="navbar__content-el">
-                <a href="#">reservation <i class="fas fa-chevron-down"></i></a>
-                <ul class="navbar__content-dropdown">
+                <div class="navbar__headerwrap navbar__headerwrap--small">
+                  <a href="#">reservation</a>
+                  <div class="navbar__listwrap-pointdown">
+                    <i class="fas fa-chevron-down"></i>
+                  </div>
+                </div>
+                <ul
+                  class="navbar__contentwrap navbar__contentwrap--small navbar__content-dropdown"
+                >
                   <li><a href="#">reservation</a></li>
                   <li><a href="#">booking</a></li>
                 </ul>
@@ -85,7 +159,7 @@
               <div class="navbar__content-icon navbar__content-search">
                 <i class="fas fa-search"></i>
               </div>
-              <div class="navbar__content-icon navbar__content-">
+              <div class="navbar__content-icon">
                 <i class="fas fa-bars"></i>
               </div>
             </div>

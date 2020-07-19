@@ -1,10 +1,22 @@
 .guide {
   background-color: #fff;
   padding: 3rem 6rem 9rem 6rem;
+  @include respond(phone) {
+    padding: 3rem 4rem 4rem 4rem;
+  }
   &__grid {
     display: grid;
     grid-template-columns: repeat(3, 33.33%);
     grid-template-rows: repeat(2, 30rem);
+
+    @include respond(tab-nor) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+    @include respond(phone) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(6, 1fr);
+    }
 
     &--title {
       font-size: 2.5rem;
@@ -63,6 +75,10 @@
     &-4 {
       background: url(../assets/home-8-image-3.jpg) no-repeat center center;
       background-size: cover;
+      @include respond(tab-nor) {
+        grid-row: 2/3;
+        grid-column: 1/2;
+      }
     }
     &-5 {
       background: url(../assets/home-8-image-4.jpg) no-repeat center center;

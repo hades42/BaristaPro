@@ -10,15 +10,31 @@
   &__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    @include respond(tab-port) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, 1fr);
+    }
+
     // gap: 9rem;
     &-1 {
       margin-right: 9rem;
     }
     &-2 {
       margin-right: 2.5rem;
+      @include respond(tab-port) {
+        margin-right: 6rem;
+      }
     }
     &-3 {
       margin-right: 5rem;
+      @include respond(tab-port) {
+        margin-right: 8rem;
+      }
+    }
+    &-4 {
+      @include respond(tab-port) {
+        margin-right: 6rem;
+      }
     }
     &-time {
       font-size: 1.4rem;

@@ -1,6 +1,9 @@
 $heightOfNav: 6rem;
 
 .navbar-light {
+  @include respond(tab-nor) {
+    display: none;
+  }
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -118,6 +121,7 @@ $heightOfNav: 6rem;
     &-icon {
       font-size: 2rem;
       line-height: $heightOfNav;
+      cursor: pointer;
       &:not(:last-child) {
         margin-right: 3rem;
       }

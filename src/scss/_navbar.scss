@@ -5,16 +5,34 @@ $heightOfNav: 6rem;
   align-items: center;
   justify-content: space-between;
   padding: 0 2.5rem;
+  @include respond(tab-nor) {
+    background-color: $black;
+    flex-direction: column;
+    align-items: flex-start;
+    // z-index: 50;
+    // padding: 2.5rem 2.5rem;
+  }
   &__logo {
     width: 11rem;
+    // margin: 0 auto;
   }
   &__content {
     display: flex;
+    @include respond(tab-nor) {
+      width: 100%;
+    }
     &-list {
       display: flex;
       color: white;
       list-style: none;
       align-items: center;
+
+      @include respond(tab-nor) {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        // flex: 1 1 auto;
+      }
     }
     &-link {
       cursor: pointer;
@@ -25,6 +43,11 @@ $heightOfNav: 6rem;
         transition: all 0.2s ease-in;
         z-index: 100;
         transform: translate(18rem, 2rem);
+        @include respond(tab-nor) {
+          line-height: 2rem;
+          transition: none;
+          transform: none;
+        }
       }
       a {
         display: flex;
@@ -44,10 +67,17 @@ $heightOfNav: 6rem;
       display: inline-block;
       cursor: pointer;
       line-height: $heightOfNav;
-
+      @include respond(tab-nor) {
+        // margin: 0 0 2rem 0;
+        // display: flex;
+        width: 100%;
+        line-height: 2rem;
+        padding-bottom: 1.5rem;
+      }
       a {
         color: white;
         transition: 0.5s;
+
         i {
           font-size: 1.5rem;
           margin-left: 0.5rem;
@@ -61,12 +91,18 @@ $heightOfNav: 6rem;
         visibility: visible;
         transition: all 0.2s linear;
         z-index: 100;
+        @include respond(tab-nor) {
+          line-height: 2rem;
+        }
       }
       &:last-child {
         position: relative;
         margin-right: 7rem;
       }
       &:last-child::after {
+        @include respond(tab-nor) {
+          display: none;
+        }
         content: "";
         width: 0.2rem;
         height: 3rem;
@@ -91,6 +127,19 @@ $heightOfNav: 6rem;
       background-color: whitesmoke;
       padding: 2rem 0rem 2rem 2rem;
       width: 20rem;
+      @include respond(tab-nor) {
+        position: relative;
+        opacity: 1;
+        visibility: visible;
+        line-height: 2rem;
+        border: none;
+        padding: 0;
+        width: 10rem;
+        transform: translateY(0);
+        background-color: transparent;
+        top: 0;
+      }
+
       a {
         font-weight: 400;
         color: #666;
@@ -100,16 +149,23 @@ $heightOfNav: 6rem;
       }
       &--2 {
         transform: translate(10rem, 2rem);
+        @include respond(tab-nor) {
+          transform: none;
+        }
       }
     }
 
     &-func {
+      @include respond(tab-nor) {
+        display: none;
+      }
       display: flex;
       color: white;
     }
     &-icon {
       font-size: 2rem;
       line-height: $heightOfNav;
+      cursor: pointer;
       &:not(:last-child) {
         margin-right: 3rem;
       }
@@ -129,6 +185,67 @@ $heightOfNav: 6rem;
         align-items: center;
         justify-content: center;
       }
+    }
+  }
+
+  &__headerwrap {
+    display: flex;
+    align-items: center;
+    @include respond(tab-nor) {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2.5rem;
+      // margin-bottom: 2rem;
+
+      &--small {
+        padding: 0;
+        border-bottom: 1px dotted $base-color;
+        padding-bottom: 0.7rem;
+        margin-bottom: 1.4rem;
+      }
+      &--smallest {
+        padding: 0;
+        border-bottom: 1px dotted $base-color;
+        padding-bottom: 0.7rem;
+        margin-bottom: 1.4rem;
+      }
+    }
+    &-icon {
+      display: none;
+      @include respond(tab-nor) {
+        display: block;
+        color: white;
+        font-size: 2rem;
+      }
+    }
+  }
+  &__contentwrap {
+    @include respond(tab-nor) {
+      padding: 0rem 6rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+
+      &--small {
+        width: 100%;
+        padding: 0rem 0rem 0 4rem;
+        li {
+          &:not(:last-of-type) {
+            border-bottom: 1px dotted $base-color;
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  &__listwrap {
+    display: flex;
+    &-pointdown {
+      margin-left: 1rem;
     }
   }
 }

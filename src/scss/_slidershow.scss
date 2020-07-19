@@ -1,18 +1,24 @@
 .slidershow {
   width: 100%;
   position: relative;
+
   &__navigation {
     color: rgba(255, 255, 255, 0.712);
     font-size: 3.5rem;
+    // z-index: 10;
 
     i {
       position: absolute;
-      z-index: 1000;
+      z-index: 200;
       cursor: pointer;
       transition: all 0.6s ease;
       top: 50%;
       color: white;
       margin: 0 5rem;
+
+      @include respond(tab-nor) {
+        display: none;
+      }
     }
   }
 
@@ -87,11 +93,9 @@
   }
   &__image {
     width: 100%;
-    // visibility: hidden;
-    // opacity: 1;
     transition: visibility 0.2s linear;
-    // &.actived {
-    //   visibility: visible;
+    // @include respond(tab-nor) {
+    //   height: 100%;
     // }
   }
   &__content {
@@ -105,6 +109,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    @include respond(tab-nor) {
+      top: 40%;
+    }
     &-title {
       color: rgba(255, 255, 255, 1);
       font-size: 7rem;
@@ -115,6 +122,14 @@
       font-weight: 700;
       text-transform: uppercase;
       transform-origin: 50% 50% 0;
+      @include respond(tab-port) {
+        font-size: 5rem;
+      }
+      @include respond(phone) {
+        font-size: 3rem;
+        line-height: 3rem;
+        margin-top: 2rem;
+      }
     }
     &-des {
       font-size: 2.2rem;
@@ -123,6 +138,12 @@
       font-style: italic;
       text-align: center;
       transform-origin: 50% 50% 0;
+      @include respond(tab-port) {
+        font-size: 1.5rem;
+      }
+      @include respond(phone) {
+        line-height: 2rem;
+      }
     }
 
     &-btn {
@@ -133,6 +154,15 @@
       background: transparent;
       margin-top: 3.5rem;
       cursor: pointer;
+      @include respond(tab-port) {
+        font-size: 1.5rem;
+        padding: 1rem 3rem;
+      }
+      @include respond(phone) {
+        // font-size: 1.5rem;
+        padding: 0.8rem 0.8rem;
+        margin-top: 1rem;
+      }
       &:focus {
         outline: none;
       }
@@ -212,16 +242,3 @@
     opacity: 1;
   }
 }
-
-// .fadeOut {
-//   opacity: 0;
-// }
-
-// @keyframes fadeOut {
-//   from {
-//     opacity: 1;
-//   }
-//   to {
-//     opacity: 0;
-//   }
-// }

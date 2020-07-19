@@ -6,12 +6,30 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  //   position: relative;
+  position: relative;
+  transition: transform 0.3s ease-in;
+  // overflow: hidden;
+
+  &.show-edge {
+    transform: translateX(-40rem);
+    &::after {
+      content: "";
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      background-color: rgba($color: $black, $alpha: 0.4);
+    }
+  }
 }
 
 .content {
-  width: 90%;
+  width: 93%;
   max-width: 139rem;
   margin: 0 auto;
   position: relative;
+  @include respond(phone) {
+    width: 98%;
+  }
 }

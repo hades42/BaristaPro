@@ -162,4 +162,123 @@ function moveItem() {
 setInterval(moveItem, 4000);
 
 window.onload = load();
-console.log(items);
+// console.log(items);
+
+// To Top button
+const toTop = document.querySelector(".to-top");
+
+window.addEventListener("scroll", () => {
+  if (window.pageYOffset > 700) {
+    toTop.classList.add("active");
+  } else {
+    toTop.classList.remove("active");
+  }
+});
+
+function smoothScroll(name, duration) {
+  const target = document.querySelector(name);
+  let targetPosition = target.getBoundingClientRect().top;
+  let startPosition = window.pageYOffset;
+  let distance = targetPosition - startPosition;
+  let startTime = null;
+
+  function animationScroll(currentTime) {
+    if (startTime === null) startTime = currentTime;
+    let timeElapsed = currentTime - startTime;
+    let run = easeInOut(timeElapsed, startPosition, distance, duration);
+    window.scroll(0, run);
+    if (timeElapsed < duration) requestAnimationFrame(animationScroll);
+    // console.log(timeElapsed + ", " + duration);
+  }
+
+  function easeInOut(t, b, c, d) {
+    t /= d / 2;
+    if (t < 1) return (c / 2) * t * t * t * t + b;
+    t -= 2;
+    return (-c / 2) * (t * t * t * t - 2) + b;
+  }
+
+  requestAnimationFrame(animationScroll);
+}
+
+let toTopBtn = document.querySelector(".to-top");
+
+toTopBtn.addEventListener("click", () => {
+  smoothScroll(".slidershow", 2000);
+});
+
+// console.log(document.querySelector(".t"));
+const edge = document.querySelector(".edge");
+const navEdge = document.querySelectorAll(".fas.fa-bars");
+const container = document.querySelector(".container");
+const closeEdge = document.querySelector(".edge__close");
+
+// console.log(navEdge);
+navEdge.forEach((el) =>
+  el.addEventListener("click", () => {
+    container.className = "container show-edge";
+    edge.style.top = `${document.documentElement.scrollTop}px`;
+    // console.log(pageYOffset);
+  })
+);
+
+closeEdge.addEventListener("click", () => {
+  container.className = "container";
+});
+
+window.addEventListener("scroll", () => {
+  if (container.classList.contains("show-edge")) {
+    if (
+      document.body.scrollTop > 200 ||
+      document.documentElement.scrollTop > 200
+    ) {
+      container.className = "container";
+    }
+  }
+});
+
+//  Accordion
+const mainHeader = document.querySelector(".navbar__headerwrap");
+const mainBody = mainHeader.nextElementSibling;
+let mainBodyHeigh = mainBody.scrollHeight;
+const origin = mainBodyHeigh;
+
+mainHeader.addEventListener("click", (e) => {
+  mainHeader.classList.toggle("active");
+
+  if (mainHeader.classList.contains("active")) {
+    mainBody.style.maxHeight = mainBodyHeigh + "px";
+  } else {
+    mainBodyHeigh = origin;
+    mainBody.style.maxHeight = 0;
+    removeAllHeight(headerWrap);
+  }
+});
+
+const headerWrap = document.querySelectorAll(".navbar__headerwrap--small");
+
+headerWrap.forEach((headerItem) => {
+  headerItem.addEventListener("click", (e) => {
+    headerItem.classList.toggle("active");
+
+    const body = headerItem.nextElementSibling;
+    if (headerItem.classList.contains("active")) {
+      mainBodyHeigh += body.scrollHeight;
+      body.style.maxHeight = body.scrollHeight + "px";
+      mainBody.style.maxHeight = mainBodyHeigh + "px";
+    } else {
+      // mainBody.style.maxHeight -= body.scrollHeight + "px";
+      body.style.maxHeight = 0;
+      mainBodyHeigh -= body.scrollHeight;
+      mainBody.style.maxHeight = mainBodyHeigh + "px";
+    }
+  });
+});
+
+function removeAllHeight(allHeader) {
+  allHeader.forEach((header) => {
+    header.classList.remove("active");
+    const body = header.nextElementSibling;
+    body.style.maxHeight = 0;
+  });
+}
